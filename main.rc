@@ -1,0 +1,53 @@
+#include <windows.h>
+
+chars BITMAP "./img/data.bmp"
+board BITMAP "./img/board.bmp"
+
+piece01 BITMAP "./pieces/0-1.bmp"
+piece02 BITMAP "./pieces/0-2.bmp"
+piece03 BITMAP "./pieces/0-3.bmp"
+piece04 BITMAP "./pieces/0-4.bmp"
+piece05 BITMAP "./pieces/0-5.bmp"
+piece06 BITMAP "./pieces/0-6.bmp"
+piece11 BITMAP "./pieces/1-1.bmp"
+piece12 BITMAP "./pieces/1-2.bmp"
+piece13 BITMAP "./pieces/1-3.bmp"
+piece14 BITMAP "./pieces/1-4.bmp"
+piece15 BITMAP "./pieces/1-5.bmp"
+piece16 BITMAP "./pieces/1-6.bmp"
+
+gui DIALOG 0,0,440,435
+STYLE WS_VISIBLE|DS_CENTER|WS_OVERLAPPEDWINDOW
+CAPTION "Chess"
+FONT 10,"Lucida Console"
+{
+}
+
+menu MENU
+{
+	POPUP "New"
+	{
+		MENUITEM "CPU vs CPU",101
+		MENUITEM "PLAYER vs CPU",103
+		MENUITEM "CPU vs PLAYER",104
+	}
+	
+	MENUITEM "Settings",102
+	MENUITEM "Flip Board",105
+}
+
+settings DIALOGEX 0,0,150,90
+STYLE WS_VISIBLE|WS_CHILD|DS_CENTER|WS_POPUP|WS_SYSMENU
+CAPTION "Settings"
+FONT 10,"Lucida Console"
+{
+	CHECKBOX "Anti-aliasing",122,2,0,150,15,BS_AUTOCHECKBOX
+	CHECKBOX "CPU vs CPU Auto New Game",121,2,15,150,15,BS_AUTOCHECKBOX
+	CHECKBOX "PLAYER Lose On Time",123,2,30,150,15,BS_AUTOCHECKBOX
+	LTEXT "Time", -1, 5, 48, 40, 10
+	EDITTEXT 124, 30, 46, 40, 12
+	LTEXT "White Engine", -1, 5, 63, 70, 10
+	EDITTEXT 125, 60, 61, 70, 12, ES_AUTOHSCROLL
+	LTEXT "Black Engine", -1, 5, 78, 70, 10
+	EDITTEXT 126, 60, 76, 70, 12, ES_AUTOHSCROLL
+}
